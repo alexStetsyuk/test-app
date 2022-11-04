@@ -19,3 +19,7 @@ code {
 h1 {
   color: #505b67;
 }
+
+button {
+  cursor: pointer;
+}
