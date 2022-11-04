@@ -8,7 +8,11 @@ export function Rating({ title }) {
   return (
     <ContentWrapper flexDirection='column' alignItems='center' gap='5px'>
       <HeaderThree>{title}</HeaderThree>
-      <Star rating={rating} count={5} onRating={(rate) => setRating(rate)} />
+      <Star
+        rating={rating}
+        count={5}
+        onRatingChange={(rate) => setRating(rate)}
+      />
     </ContentWrapper>
   )
 }

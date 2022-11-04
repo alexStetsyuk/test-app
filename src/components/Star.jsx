@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { ContentWrapper } from '../shared/ContentWrapper'
 
-export default function Star({ count }) {
-  const [rating, setRating] = useState(0)
+export default function Star({ count, rating, onRatingChange }) {
   const [hover, setHover] = useState(0)
 
   console.log(rating)
@@ -15,7 +14,7 @@ export default function Star({ count }) {
           key={idx}
           onMouseEnter={() => setHover(idx)}
           onMouseLeave={() => setHover(rating)}
-          onClick={() => setRating(idx)}
+          onClick={() => onRatingChange(idx)}
           width='20'
           height='20'
           viewBox='0 0 20 20'
