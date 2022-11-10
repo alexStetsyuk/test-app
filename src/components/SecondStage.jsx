@@ -89,6 +89,11 @@ export default function SecondStage() {
             <option value='Specific'>Specific</option>
           </StyledSelect>
           <TeamInputField>
+            {!members.length && !inputField && (
+              <ContentWrapper alignItems='center' color='#AAB4BD'>
+                Add someone here
+              </ContentWrapper>
+            )}
             {members.map((member) => {
               return (
                 <TeamMember

@@ -11,6 +11,7 @@ export const ContentWrapper = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   background-color: ${(props) => props.backgroundColor};
+  color: ${(props) => props.color};
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
   border: ${(props) => props.border};
