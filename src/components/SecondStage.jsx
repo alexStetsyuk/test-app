@@ -8,11 +8,19 @@ import MemberVote from './MemberVote'
 import { HrLine } from '../shared/HrLine'
 import { HeaderThree } from '../shared/HeaderThree'
 import { StyledSelect } from '../shared/StyledSelect'
-import { CountWrapper } from '../shared/CountWrapper'
 import { ContentWrapper } from '../shared/ContentWrapper'
+import Input from './Input'
+import Operations from './Operations'
 
 export default function SecondStage() {
   const [count, setCount] = useState(1)
+  const [members, setMembers] = useState([
+    { id: crypto.randomUUID(), name: 'Kathryn Murphy' },
+    { id: crypto.randomUUID(), name: 'Darrell Steward' },
+    { id: crypto.randomUUID(), name: 'Darlene Robertson' }
+  ])
+  const [newMember, setNewMember] = useState('')
+  const [inputField, setInputField] = useState(false)
 
   function addHandler() {
     setCount((prevValue) => prevValue + 1)
@@ -25,6 +33,28 @@ export default function SecondStage() {
       }
       return 0
     })
+  }
+
+  function deleteMember(id) {
+    setMembers((currentMembers) =>
+      currentMembers.filter((member) => member.id !== id)
+    )
+  }
+
+  function handleAddMember() {
+    setMembers((prevMembers) => {
+      return [...prevMembers, { id: crypto.randomUUID(), name: newMember }]
+    })
+    setNewMember('')
+    setInputField(false)
+  }
+
+  function handleChange(e) {
+    setNewMember(e.target.value)
+  }
+
+  function inputActiveHandler() {
+    setInputField(true)
   }
 
   return (
@@ -42,11 +72,11 @@ export default function SecondStage() {
           <StyledSelect width='250px'>
             <option value='Design'>Design</option>
           </StyledSelect>
-          <CountWrapper>
-            <button onClick={subtractHandler}>-</button>
-            <p>{count}</p>
-            <button onClick={addHandler}>+</button>
-          </CountWrapper>
+          <Operations
+            add={addHandler}
+            subtract={subtractHandler}
+            count={count}
+          />
           <StyledSelect width='269px'>
             <option value='' disabled selected style={{ color: '#AAB4BD' }}>
               Who to send the request to
@@ -59,15 +89,36 @@ export default function SecondStage() {
             <option value='Specific'>Specific</option>
           </StyledSelect>
           <TeamInputField>
-            <TeamMember name='Kathryn Murphy' />
-            <TeamMember name='Darrell Steward' />
-            <TeamMember name='Darlene Robertson' />
-            <AddMemberBtn />
+            {members.map((member) => {
+              return (
+                <TeamMember
+                  key={member.id}
+                  id={member.id}
+                  name={member.name}
+                  deleteMember={deleteMember}
+                />
+              )
+            })}
+            {inputField && (
+              <Input
+                value={newMember}
+                handleAdd={handleAddMember}
+                changeHandler={handleChange}
+                blurHandler={() => setInputField(false)}
+              />
+            )}
+            <AddMemberBtn clickHandler={inputActiveHandler} />
           </TeamInputField>
         </ContentWrapper>
         <ContentWrapper display='flex' gap='21.5rem'>
-          <Button fileBtn={false} buttonLabel='Add' alignSelf='flex-end' />
           <Button
+            disabled={true}
+            fileBtn={false}
+            buttonLabel='Add'
+            alignSelf='flex-end'
+          />
+          <Button
+            disabled={true}
             fileBtn={false}
             contentColor='#FFF'
             backgroundColor='#4EC970'

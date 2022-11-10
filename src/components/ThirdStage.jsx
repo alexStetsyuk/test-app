@@ -6,7 +6,7 @@ import { Rating } from './Rating'
 import { StyledInput } from '../shared/StyledInput'
 import { ContentWrapper } from '../shared/ContentWrapper'
 
-export default function ThirdStage({ feedbackField, handleChange }) {
+export default function ThirdStage({ feedbackField, handleChange, stars }) {
   return (
     <ContentWrapper display='flex' flexDirection='column'>
       <ContentWrapper
@@ -49,9 +49,13 @@ export default function ThirdStage({ feedbackField, handleChange }) {
           width='724px'
           padding='2rem 2.5rem'
         >
-          <Rating title='Team Player' />
-          <Rating title='Professional Skills' />
-          <Rating title='Parameter #3' />
+          <Rating title='Team Player' stars={stars} onChange={handleChange} />
+          <Rating
+            title='Professional Skills'
+            stars={stars}
+            onChange={handleChange}
+          />
+          <Rating title='Parameter #3' stars={stars} onChange={handleChange} />
         </ContentWrapper>
         <StyledInput
           type='text'

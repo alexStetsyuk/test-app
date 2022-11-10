@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: ${(props) => props.flexDirection};
+  flex-grow: ${(props) => props.flexGrow};
   align-items: ${(props) => props.alignItems};
   align-self: ${(props) => props.alignSelf};
   justify-content: ${(props) => props.justifyContent};
@@ -12,5 +13,7 @@ export const ContentWrapper = styled.div`
   background-color: ${(props) => props.backgroundColor};
   padding: ${(props) => props.padding};
   margin: ${(props) => props.margin};
-  border-radius: 8px;
+  border: ${(props) => props.border};
+  border-radius: ${(props) => props.borderRadius || '8px'};
+  cursor: ${(props) => props.cursor};
 `

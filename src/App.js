@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import SecondStage from './components/SecondStage'
 import ThirdStage from './components/ThirdStage'
-import { useFormik } from 'formik'
+import { Form, Formik, useFormik } from 'formik'
 import SubmitButton from './components/SubmitBtn'
 
 const AppWrapper = styled.div`
@@ -19,7 +19,8 @@ function App() {
       stageTitle: '',
       stageSubtitle: '',
       feedbackField: '',
-      stageType: 'Test Task'
+      stageType: 'Test Task',
+      checkbox: false
     },
     onSubmit: (values) => {
       console.log(values)
@@ -28,39 +29,43 @@ function App() {
   return (
     <AppWrapper>
       <Header />
-      <form onSubmit={formik.handleSubmit}>
-        <Routes>
-          <Route
-            path='/firstStage'
-            element={
-              <FirstStage
-                stageTitle={formik.values.stageTitle}
-                stageSubtitle={formik.values.stageSubtitle}
-                stageType={formik.values.stageType}
-                handleChange={formik.handleChange}
-              />
-            }
-          ></Route>
-          <Route path='/secondStage' element={<SecondStage />}></Route>
-          <Route
-            path='/thirdStage'
-            element={
-              <ThirdStage
-                feedbackField={formik.values.feedbackField}
-                handleChange={formik.handleChange}
-              />
-            }
-          ></Route>
-          <Route path='*' element={<Navigate to='/firstStage' replace />} />
-        </Routes>
-        <SubmitButton
-          contentColor='#FFF'
-          backgroundColor='#4EC970'
-          buttonLabel='Next'
-          mgTop='15px'
-          boxShadow={true}
-        />
-      </form>
+      <Formik>
+        <form onSubmit={formik.handleSubmit}>
+          <Routes>
+            <Route
+              path='/firstStage'
+              element={
+                <FirstStage
+                  stageTitle={formik.values.stageTitle}
+                  stageSubtitle={formik.values.stageSubtitle}
+                  stageType={formik.values.stageType}
+                  checkbox={formik.values.checkbox}
+                  handleChange={formik.handleChange}
+                />
+              }
+            ></Route>
+            <Route path='/secondStage' element={<SecondStage />}></Route>
+            <Route
+              path='/thirdStage'
+              element={
+                <ThirdStage
+                  feedbackField={formik.values.feedbackField}
+                  stars={formik.values.stars}
+                  handleChange={formik.handleChange}
+                />
+              }
+            ></Route>
+            <Route path='*' element={<Navigate to='/firstStage' replace />} />
+          </Routes>
+          <SubmitButton
+            contentColor='#FFF'
+            backgroundColor='#4EC970'
+            buttonLabel='Next'
+            mgTop='15px'
+            boxShadow={true}
+          />
+        </form>
+      </Formik>
     </AppWrapper>
   )
 }

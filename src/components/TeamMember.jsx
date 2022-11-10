@@ -1,51 +1,29 @@
-import styled from 'styled-components'
 import { HeaderThree } from '../shared/HeaderThree'
+import DeleteMemberIcon from '../icons/DeleteMemberIcon'
+import { ContentWrapper } from '../shared/ContentWrapper'
 
-const StyledTeamMember = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 3px;
-  width: ${(props) => (props.length > 15 ? '191px' : '167px')};
-  height: 36px;
-  background: #ecf0f5;
-  border-radius: 4px;
-`
-
-const LittleCircle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  background: #fefefe;
-  &::before {
-    content: '';
-    position: absolute;
-    width: 0.8rem;
-    height: 2px;
-    border-radius: 2px;
-    background-color: #ccd2e3;
-    transform: rotate(45deg);
+export default function TeamMember({ name, deleteMember, id }) {
+  function memberNameSlicer(memberName) {
+    if (memberName.length <= 17) {
+      return memberName
+    } else {
+      return memberName.slice(0, 13).concat('...')
+    }
   }
-  &::after {
-    content: '';
-    position: absolute;
-    width: 0.8rem;
-    height: 2px;
-    border-radius: 2px;
-    background-color: #ccd2e3;
-    transform: rotate(-45deg);
-  }
-`
-
-export default function TeamMember({ name }) {
   return (
-    <StyledTeamMember length={name.length}>
-      <HeaderThree>{name}</HeaderThree>
-      <LittleCircle></LittleCircle>
-    </StyledTeamMember>
+    <ContentWrapper
+      alignItems='center'
+      justifyContent='space-around'
+      height='36px'
+      padding='0 0.4rem'
+      gap='0.4rem'
+      backgroundColor='#ecf0f5'
+      borderRadius='4px'
+    >
+      <HeaderThree title={name}>{memberNameSlicer(name)}</HeaderThree>
+      <ContentWrapper cursor='pointer' onClick={() => deleteMember(id)}>
+        <DeleteMemberIcon />
+      </ContentWrapper>
+    </ContentWrapper>
   )
 }

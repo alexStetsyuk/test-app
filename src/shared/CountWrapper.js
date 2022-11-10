@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CountWrapper = styled.div`
+const CountWrapper = styled.div`
   display: flex;
   width: 112px;
   height: 44px;
@@ -18,7 +18,6 @@ export const CountWrapper = styled.div`
     justify-content: center;
   }
   button {
-    color: #3974f6;
     font-size: 1.2rem;
     border: none;
     border-left: 1px solid #f7f8f9;
@@ -34,3 +33,4 @@ export const CountWrapper = styled.div`
     }
   }
 `
+export default CountWrapper

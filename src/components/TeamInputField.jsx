@@ -8,7 +8,7 @@ const TeamField = styled.div`
   border: 1px solid #ccd2e3;
   border-radius: 4px;
   width: 390px;
-  height: 90px;
+  height: 100%;
   padding: 5px;
 `
 

@@ -1,16 +1,23 @@
 import React, { useState } from 'react'
 import { ContentWrapper } from '../shared/ContentWrapper'
 
-export default function Star({ count, rating, onRatingChange }) {
+export default function Star({
+  count,
+  rating,
+  onRatingChange,
+  name,
+  onChange
+}) {
   const [hover, setHover] = useState(0)
 
-  console.log(rating)
   const stars = Array(count)
     .fill(0)
     .map((_, i) => i + 1)
     .map((idx) => {
       return (
         <svg
+          name='stars'
+          onChange={onChange}
           key={idx}
           onMouseEnter={() => setHover(idx)}
           onMouseLeave={() => setHover(rating)}
@@ -30,5 +37,9 @@ export default function Star({ count, rating, onRatingChange }) {
         </svg>
       )
     })
-  return <ContentWrapper display='flex'>{stars}</ContentWrapper>
+  return (
+    <ContentWrapper display='flex' cursor='pointer'>
+      {stars}
+    </ContentWrapper>
+  )
 }

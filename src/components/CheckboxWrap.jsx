@@ -1,9 +1,8 @@
-import StyledCheckboxComponent from './StyledCheckboxComponent'
-import { StyledP } from '../shared/StyledP'
 import { ContentWrapper } from '../shared/ContentWrapper'
+import StyledCheckboxComponent from './StyledCheckboxComponent'
 import { useState } from 'react'
 
-export default function FeedbackCheckbox({ title }) {
+const CheckboxWrap = () => {
   const [checked, setChecked] = useState(false)
 
   function checkedHandler() {
@@ -13,13 +12,12 @@ export default function FeedbackCheckbox({ title }) {
     <ContentWrapper
       onClick={checkedHandler}
       alignItems='center'
-      gap='7px'
-      padding='5px'
-      margin='0 0 0 1.3rem'
+      gap='5px'
       cursor='pointer'
     >
       <StyledCheckboxComponent checked={checked} />
-      <StyledP>{title}</StyledP>
     </ContentWrapper>
   )
 }
+
+export default CheckboxWrap

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { CloseBtn } from '../shared/CloseBtn'
 import Step from './Step'
-import { useHref } from 'react-router-dom'
+import { Link, useHref } from 'react-router-dom'
 
 const Layout = styled.div`
   display: flex;
@@ -21,21 +21,29 @@ export default function Header() {
     <HeaderWrapper>
       <h1>Create Stage</h1>
       <Layout>
-        <Step
-          numberOfStep={1}
-          headerContent='Basic Configuration'
-          active={true}
-        />
-        <Step
-          numberOfStep={2}
-          headerContent='Team / Votes'
-          active={activeStage === 'secondStage' || activeStage === 'thirdStage'}
-        />
-        <Step
-          numberOfStep={3}
-          headerContent='Feedback'
-          active={activeStage === 'thirdStage'}
-        />
+        <Link to='/firstStage' className='link'>
+          <Step
+            numberOfStep={1}
+            headerContent='Basic Configuration'
+            active={true}
+          />
+        </Link>
+        <Link to='/secondStage' className='link'>
+          <Step
+            numberOfStep={2}
+            headerContent='Team / Votes'
+            active={
+              activeStage === 'secondStage' || activeStage === 'thirdStage'
+            }
+          />
+        </Link>
+        <Link to='/thirdStage' className='link'>
+          <Step
+            numberOfStep={3}
+            headerContent='Feedback'
+            active={activeStage === 'thirdStage'}
+          />
+        </Link>
       </Layout>
       <CloseBtn>
         <svg

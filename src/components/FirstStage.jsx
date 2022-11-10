@@ -3,15 +3,20 @@ import Button from './Button'
 import Select from './Select'
 import { StyledInput } from '../shared/StyledInput'
 import { ContentWrapper } from '../shared/ContentWrapper'
+import RadioGroup from './RadioGroup'
+import Label from './Label'
 
 export default function FirstStage({
   stageTitle,
   stageSubtitle,
   stageType,
-  handleChange
+  handleChange,
+  checkbox
 }) {
   return (
     <ContentWrapper display='flex' flexDirection='column'>
+      {/* <Label checkbox={checkbox} handleChange={handleChange} />
+      <RadioGroup titles={['one', 'two', 'three']} /> */}
       <ContentWrapper
         display='flex'
         width='900px'
