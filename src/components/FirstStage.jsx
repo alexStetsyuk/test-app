@@ -1,10 +1,11 @@
+import { useState } from 'react'
 import Checkbox from './Checkbox'
 import Button from './Button'
-import Select from './Select'
 import { StyledInput } from '../shared/StyledInput'
 import { ContentWrapper } from '../shared/ContentWrapper'
 import RadioGroup from './RadioGroup'
 import Label from './Label'
+import Multiselect from './Multiselect'
 
 export default function FirstStage({
   stageTitle,
@@ -47,7 +48,13 @@ export default function FirstStage({
             value={stageSubtitle}
             onChange={handleChange}
           />
-          <Select stageType={stageType} handleChange={handleChange} />
+          <Multiselect
+            titles={['Test Task', 'Accepted', 'Done']}
+            height='42px'
+            width='640px'
+            right='2%'
+            top='23rem'
+          />
           <br />
           <ContentWrapper display='flex' flexDirection='column' gap='0.7rem'>
             <Checkbox name='Candidate can upload files' />

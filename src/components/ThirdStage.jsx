@@ -1,4 +1,3 @@
-import Button from './Button'
 import RadioBtn from './RadioBtn'
 import FeedbackCheckbox from './FeedbackCheckbox'
 import { HeaderThree } from '../shared/HeaderThree'
@@ -67,15 +66,6 @@ export default function ThirdStage({ feedbackField, handleChange, stars }) {
           width='724px'
         />
       </ContentWrapper>
-      {/* <Button
-        type='submit'
-        contentColor='#FFF'
-        backgroundColor='#4EC970'
-        buttonLabel='Create Stage'
-        alignSelf='flex-end'
-        mgTop='15px'
-        boxShadow={true}
-      /> */}
     </ContentWrapper>
   )
 }

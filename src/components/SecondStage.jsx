@@ -7,10 +7,10 @@ import RadioBtn from './RadioBtn'
 import MemberVote from './MemberVote'
 import { HrLine } from '../shared/HrLine'
 import { HeaderThree } from '../shared/HeaderThree'
-import { StyledSelect } from '../shared/StyledSelect'
 import { ContentWrapper } from '../shared/ContentWrapper'
 import Input from './Input'
 import Operations from './Operations'
+import Multiselect from './Multiselect'
 
 export default function SecondStage() {
   const [count, setCount] = useState(1)
@@ -69,25 +69,35 @@ export default function SecondStage() {
       >
         <HeaderThree marginTop='2rem'>Team</HeaderThree>
         <ContentWrapper display='flex' gap='10px'>
-          <StyledSelect width='250px'>
-            <option value='Design'>Design</option>
-          </StyledSelect>
+          <Multiselect
+            titles={['Design', 'In testing']}
+            height='42px'
+            width='250px'
+            right='5%'
+            top='16.5rem'
+          />
           <Operations
             add={addHandler}
             subtract={subtractHandler}
             count={count}
           />
-          <StyledSelect width='269px'>
-            <option value='' disabled selected style={{ color: '#AAB4BD' }}>
-              Who to send the request to
-            </option>
-            <option value='Design'>Design</option>
-          </StyledSelect>
+          <Multiselect
+            disableTitle='Who to send the request to'
+            titles={['Sam', 'Alex', 'Fred']}
+            height='42px'
+            width='269px'
+            right='5%'
+            top='16.6rem'
+          />
         </ContentWrapper>
         <ContentWrapper display='flex' gap='10px'>
-          <StyledSelect width='250px' alignSelf='flex-start'>
-            <option value='Specific'>Specific</option>
-          </StyledSelect>
+          <Multiselect
+            titles={['Specific', 'Non specific']}
+            height='42px'
+            width='250px'
+            right='5%'
+            top='20.4rem'
+          />
           <TeamInputField>
             {!members.length && !inputField && (
               <ContentWrapper alignItems='center' color='#AAB4BD'>
@@ -161,16 +171,6 @@ export default function SecondStage() {
           </ContentWrapper>
         </ContentWrapper>
       </ContentWrapper>
-      {/* <Button
-        fileBtn={false}
-        contentColor='#FFF'
-        backgroundColor='#4EC970'
-        buttonLabel='Next'
-        alignSelf='flex-end'
-        mgTop='15px'
-        moveTo='thirdStage'
-        boxShadow={true}
-      /> */}
     </ContentWrapper>
   )
 }

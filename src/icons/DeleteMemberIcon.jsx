@@ -1,5 +1,3 @@
-import { ContentWrapper } from '../shared/ContentWrapper'
-
 export default function DeleteIcon() {
   return (
     <svg
