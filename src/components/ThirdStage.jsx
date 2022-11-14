@@ -4,6 +4,7 @@ import { HeaderThree } from '../shared/HeaderThree'
 import { Rating } from './Rating'
 import { StyledInput } from '../shared/StyledInput'
 import { ContentWrapper } from '../shared/ContentWrapper'
+import RadioGroup from './RadioGroup'
 
 export default function ThirdStage({ feedbackField, handleChange, stars }) {
   return (
@@ -26,10 +27,15 @@ export default function ThirdStage({ feedbackField, handleChange, stars }) {
           height='251px'
           flexDirection='column'
         >
-          <ContentWrapper display='flex' flexDirection='column' gap='10px'>
+          {/* <ContentWrapper display='flex' flexDirection='column' gap='10px'>
             <RadioBtn title='Confirm next stage' />
             <RadioBtn title='Not suitable for the next stage' />
-          </ContentWrapper>
+          </ContentWrapper> */}
+          <RadioGroup
+            titles={['Confirm next stage', 'Not suitable for the next stage']}
+            flexDirection='column'
+            gap='10px'
+          />
           <ContentWrapper
             display='flex'
             flexDirection='column'

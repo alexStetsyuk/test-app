@@ -1,10 +1,7 @@
-import { useState } from 'react'
 import Checkbox from './Checkbox'
 import Button from './Button'
 import { StyledInput } from '../shared/StyledInput'
 import { ContentWrapper } from '../shared/ContentWrapper'
-import RadioGroup from './RadioGroup'
-import Label from './Label'
 import Multiselect from './Multiselect'
 
 export default function FirstStage({
@@ -16,8 +13,6 @@ export default function FirstStage({
 }) {
   return (
     <ContentWrapper display='flex' flexDirection='column'>
-      {/* <Label checkbox={checkbox} handleChange={handleChange} />
-      <RadioGroup titles={['one', 'two', 'three']} /> */}
       <ContentWrapper
         display='flex'
         width='900px'

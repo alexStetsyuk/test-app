@@ -1,7 +1,8 @@
 import CustomRadio from './CustomRadio'
 import { useState } from 'react'
+import { ContentWrapper } from '../shared/ContentWrapper'
 
-const RadioGroup = ({ titles }) => {
+const RadioGroup = ({ titles, flexDirection, gap }) => {
   const [selectedInput, setSelectedInput] = useState('')
 
   const handleChange = (inputValue) => {
@@ -22,9 +23,14 @@ const RadioGroup = ({ titles }) => {
   })
 
   return (
-    <>
-      <div>{group}</div>
-    </>
+    <ContentWrapper
+      width='100%'
+      justifyContent='space-around'
+      flexDirection={flexDirection}
+      gap={gap}
+    >
+      {group}
+    </ContentWrapper>
   )
 }
 

@@ -11,6 +11,7 @@ import { ContentWrapper } from '../shared/ContentWrapper'
 import Input from './Input'
 import Operations from './Operations'
 import Multiselect from './Multiselect'
+import RadioGroup from './RadioGroup'
 
 export default function SecondStage() {
   const [count, setCount] = useState(1)
@@ -148,17 +149,8 @@ export default function SecondStage() {
           flexDirection='column'
           alignItems='center'
         >
-          <HeaderThree marginTop='1rem'>Votes</HeaderThree>
-          <ContentWrapper
-            width='615px'
-            alignItems='center'
-            justifyContent='space-around'
-            margin='1.5rem 0 0 0'
-          >
-            <RadioBtn title='All votes' />
-            <RadioBtn title='Majority' />
-            <RadioBtn title='Veto' />
-          </ContentWrapper>
+          <HeaderThree margin='0.9rem 0 1.5rem'>Votes</HeaderThree>
+          <RadioGroup titles={['All votes', 'Majority', 'Veto']} />
           <ContentWrapper
             display='flex'
             flexDirection='column'

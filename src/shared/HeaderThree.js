@@ -7,5 +7,6 @@ export const HeaderThree = styled.h3`
   font-size: 1rem;
   line-height: 20px;
   color: #505b67;
+  margin: ${(props) => props.margin};
   margin-top: ${(props) => props.marginTop};
 `
