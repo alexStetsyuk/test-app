@@ -24,7 +24,8 @@ const Radio = styled.input`
       border-radius: 50%;
       background-color: #4ec970;
       left: 50%;
-      transform: translate(-50%, 25%);
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 `
