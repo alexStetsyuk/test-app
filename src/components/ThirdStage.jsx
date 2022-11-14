@@ -27,10 +27,6 @@ export default function ThirdStage({ feedbackField, handleChange, stars }) {
           height='251px'
           flexDirection='column'
         >
-          {/* <ContentWrapper display='flex' flexDirection='column' gap='10px'>
-            <RadioBtn title='Confirm next stage' />
-            <RadioBtn title='Not suitable for the next stage' />
-          </ContentWrapper> */}
           <RadioGroup
             titles={['Confirm next stage', 'Not suitable for the next stage']}
             flexDirection='column'

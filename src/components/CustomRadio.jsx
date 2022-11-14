@@ -5,7 +5,6 @@ const CustomRadio = ({ name, label, value, isChecked, handleChange }) => {
   const handleRadioChange = (e) => {
     const { id } = e.currentTarget
     handleChange(id)
-    console.log(label)
   }
 
   return (
